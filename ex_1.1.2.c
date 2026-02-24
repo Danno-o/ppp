@@ -9,4 +9,5 @@ int main(){
     printf("Peso: \n");
     scanf("%f", &peso);
     printf("Chamo-me Daniel tenho %d anos e peso %.2f KG.\n", idade, peso);
+    return 0;
 }
