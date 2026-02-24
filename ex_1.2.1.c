@@ -1,6 +1,5 @@
 #include <stdio.h>
 
 int main(){
-    jb
-    
+    float euros, cents;    
 }
