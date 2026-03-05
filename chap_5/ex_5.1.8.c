@@ -35,6 +35,4 @@ int main(){
     if (dist == 0){
         printf("Escolha duas cidades diferentes!\n");
     }
-    
-    
 }
