@@ -12,7 +12,9 @@ void matriz(int a[linhas][colunas]){
     }
 }
 int main(){
-    int mat[linhas][colunas] = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int mat[linhas][colunas] = {{1,2,3},    //1ª coluna
+                                {4,5,6},    //2ª coluna
+                                {7,8,9}};   //3ª coluna
     matriz(mat);
     return 0;
 }
