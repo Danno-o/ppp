@@ -3,10 +3,6 @@
 #define linhas 5
 #define colunas 6
 
-// void calcular_dist(int a[linhas][colunas]){
-
-// }
-
 void matriz(int a[linhas][colunas]){
     for (int i = 0; i < linhas; i++){
         for (int j = 0; j < colunas; j++){

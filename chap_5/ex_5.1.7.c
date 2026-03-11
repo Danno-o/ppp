@@ -21,7 +21,6 @@ void matriz(int a[linhas][colunas]){
 int main(){
     int mat[linhas][colunas] = {{1,2,3}, {4,5,6}, {7,8,9}};
     int mat_trans[colunas][linhas];
-    
     transposta(mat, mat_trans);
     matriz(mat_trans);
     return 0;
