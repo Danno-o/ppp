@@ -26,5 +26,6 @@ void prim(){
 }
 
 int main(){
-    intervalo();
+    prim(5);
+    // intervalo();
 }
