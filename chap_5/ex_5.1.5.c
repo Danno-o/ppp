@@ -15,7 +15,6 @@ void primos(){
             if (num_teste % i == 0) flag = 0;
             break;
         }
-
         if (flag){
             vet[contador] = num_teste;
             contador++;
