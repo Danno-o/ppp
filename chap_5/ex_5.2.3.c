@@ -16,6 +16,7 @@ void sort(int v[], int n){
 
 int main(){
     int i, size1, size2;
+    
     printf("Introduza o tamanho do array: \n");
     scanf("%d", &size1);
     int vet1[size1];
@@ -41,9 +42,11 @@ int main(){
     for (i = 0; i < size1; i++){
         vet_f[i] = vet1[i];
     }
-    for (i = size1; i < size_f - 1; i++){
-        vet_f[i] = vet2[i];
+    for (i = 0; i < size_f; i++){
+        vet_f[i + 5] = vet2[i];
     }
+
+    sort(vet_f, size_f);
     for (i = 0; i < size_f; i++){
         printf("%d ", vet_f[i]);
     }
