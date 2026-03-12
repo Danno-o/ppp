@@ -13,13 +13,13 @@
 
 //     printf("A idade é %d.\n", e.idade);
 // }
-int main(){
-    int i = 3;
-    int *p;                     // p é um ponteiro;
-    p = &i;                     // em p está o endereço de i;
-    printf("Output: %d\n", *p); // print do valor guardado em i;
-    printf("Output: %p\n", p);  // print do endereço de i;
-}
+// int main(){
+//     int i = 3;
+//     int *p;                     // p é um ponteiro;
+//     p = &i;                     // em p está o endereço de i;
+//     printf("Output: %d\n", *p); // print do valor guardado em i;
+//     printf("Output: %p\n", p);  // print do endereço de i;
+// }
 
 // void swap(int *a, int *b){
 //     int temp;
@@ -37,3 +37,7 @@ int main(){
 //     swap(a, b);
 //     printf("%d %d\n", i, j);
 // }
+int main(){
+    char s[3] = {'A','B','C'};
+    printf("%s\n", s);
+}
