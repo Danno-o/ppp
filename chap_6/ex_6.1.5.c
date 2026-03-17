@@ -4,7 +4,7 @@
 
 void contar(char *x){
     int valor = 0;
-    for (int i = 0; i < x[i]; i++){
+    for (int i = 0; x[i] != '\0'; i++){
         if (isdigit(x[i])){
             valor = (valor * 10) + (x[i] - '0');
         }

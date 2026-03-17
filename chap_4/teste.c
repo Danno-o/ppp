@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 // typedef struct{
 //     int numi;
@@ -37,7 +38,32 @@
 //     swap(a, b);
 //     printf("%d %d\n", i, j);
 // }
+// int main(){
+//     char s[3] = {'A','B','C'};
+//     printf("%s\n", s);
+// }
+
+void transformar(){
+	int i, size;
+
+	printf("Introduza o tamanho do vetor: ");
+	scanf("%d", &size);
+	
+	int vet[size];
+	printf("Introduza os elementos do vetor, um de cada vez: ");
+	for (i = 0; i < size; i++){
+		scanf("%d", &vet[i]);
+	}
+	printf("O vetor alterado é: ");
+	for (i = 0; i < size; i++){
+		if(vet[i] % 2 == 1){
+			vet[i] *= 2;
+		}
+		printf("%d ", vet[i]);
+	}
+	printf("\n");
+}
+
 int main(){
-    char s[3] = {'A','B','C'};
-    printf("%s\n", s);
+    transformar();
 }

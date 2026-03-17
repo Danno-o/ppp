@@ -5,7 +5,7 @@ void contar(char *x, char *y){
     char *c = strstr(x, y);
 
     if (c != 0){
-        printf("A string é: %s\n", c);
+        printf("A string é: %ld\n", c - x);
     } 
     else{
         printf("Não encontrado.\n");

@@ -2,7 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
-void encriptar(char *a){
+void encriptar(char a[]){
     char x[26] = "DEIABCFGHJKLZYXWVUTSRQPONM";
     int index;
 
@@ -18,7 +18,7 @@ void encriptar(char *a){
     printf("%s\n", a);
 }
 
-void desencriptar(char *a){
+void desencriptar(char a[]){
     char y[26] = "DEIABCFGHJKLZYXWVUTSRQPONM";
     char inv[26];   
     int index;
@@ -41,7 +41,7 @@ void desencriptar(char *a){
 }
 
 int main(){
-    char string[50] = "Boas malta";  // string[] funciona, mas *string não, porquê?
+    char string[50] = "Boas malta";
     char string2[50] = "DEIABCFGHJKLZYXWVUTSRQPONM";
     encriptar(string);
     desencriptar(string2);
