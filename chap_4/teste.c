@@ -43,27 +43,70 @@
 //     printf("%s\n", s);
 // }
 
-void transformar(){
-	int i, size;
+// void transformar(){
+// 	int i, size;
 
-	printf("Introduza o tamanho do vetor: ");
-	scanf("%d", &size);
+// 	printf("Introduza o tamanho do vetor: ");
+// 	scanf("%d", &size);
 	
-	int vet[size];
-	printf("Introduza os elementos do vetor, um de cada vez: ");
-	for (i = 0; i < size; i++){
-		scanf("%d", &vet[i]);
-	}
-	printf("O vetor alterado é: ");
-	for (i = 0; i < size; i++){
-		if(vet[i] % 2 == 1){
-			vet[i] *= 2;
+// 	int vet[size];
+// 	printf("Introduza os elementos do vetor, um de cada vez: ");
+// 	for (i = 0; i < size; i++){
+// 		scanf("%d", &vet[i]);
+// 	}
+// 	printf("O vetor alterado é: ");
+// 	for (i = 0; i < size; i++){
+// 		if(vet[i] % 2 == 1){
+// 			vet[i] *= 2;
+// 		}
+// 		printf("%d ", vet[i]);
+// 	}
+// 	printf("\n");
+// }
+
+// int main(){
+//     transformar();
+// }
+
+int transformar(char mat[][20], int nlinhas, char resultado[][100]){
+	char acum[200] = "";
+	char temp[20];
+
+	int b = 0;
+	for (int i = 0; i < nlinhas; i++){
+		int a = 0; 
+		for (int j = 0; j < 20; j++){
+			if (mat[i][j] != '\0'){
+				temp[a++] = mat[i][j];
+			}
 		}
-		printf("%d ", vet[i]);
+		temp[a] = '\0';
+
+		int comp = strlen(temp);
+		if (comp < 5){
+			strcat(acum, temp);
+		}
+		else{
+			strcpy(resultado[b++], temp);
+		}
 	}
-	printf("\n");
+	if (strlen(acum) > 0){
+		strcpy(resultado[b++], acum);
+	}
+	return b;
 }
 
 int main(){
-    transformar();
+	char mat[][20] = 	{{'A', 'b', 'c', '\0', '\0'},
+						 {'n', 'u', 'v', 'e', 'm'},
+						 {'x', 'y', '\0', '\0', '\0'},
+						 {'t', 'e', 'r', 'r', 'a'}};
+	char res[10][100];
+	int total = transformar(mat, 4, res);
+
+    printf("Total de strings: %d\n", total);
+    for(int i = 0; i < total; i++) {
+        printf("resultado[%d] = %s\n", i, res[i]);
+    }
+    return 0;
 }
