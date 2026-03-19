@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
-// typedef struct{
-//     int numi;
-//     char nome[20];
-//     int idade;
-// } Empregado;
+typedef struct{
+    int numi;
+    char nome[20];
+    int idade;
+} Empregado;
 
-// int main(){
-//     Empregado e;
-//     // Empregado.e[100];
-//     e.idade = 21;
+int main(){
+    Empregado e;
+    // Empregado.e[100];
+    e.idade = 21;
 
-//     printf("A idade é %d.\n", e.idade);
-// }
+    printf("A idade é %d.\n", e.idade);
+}
 // int main(){
 //     int i = 3;
 //     int *p;                     // p é um ponteiro;
