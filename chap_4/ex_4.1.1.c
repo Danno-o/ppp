@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int fatorizar(int a){
+int fatorial(int a){
     int b;
     b = 1;
     for (int i = a; i > 0; i--){
@@ -13,6 +13,6 @@ int main(){
     int num, fat;
     printf("Introduza um número para calcular o seu fatorial: ");
     scanf("%d", &num);
-    fat = fatorizar(num);
+    fat = fatorial(num);
     printf("O resultado é %d.\n", fat);
 }
