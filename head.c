@@ -19,3 +19,11 @@ int fatorial(int a){
     }
     return b;
 }
+
+int contar_char_vet(char *x){
+    int contador = 0;
+    for (int i = 0; i < x[contador]; i++){
+        contador++;
+    }
+    return contador;
+}
