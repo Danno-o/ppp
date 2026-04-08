@@ -40,7 +40,7 @@ int main(){
     dat1.m = 1;
     dat1.d = 25;
     dat2.y = 2000;
-    dat2.m = 1;
+    dat2.m = 10;
     dat2.d = 23;
     dat3 = diferenca(dat1, dat2);
 
