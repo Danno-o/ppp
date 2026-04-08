@@ -1,10 +1,11 @@
 #include <stdio.h>
+#define MAX_SIZE 3
 
 struct Data{
     int d, m, y;
 };
 
-int comparar_datas(Data data1, Data data2){
+int comparar_datas(struct Data data1, struct Data data2){
     if (data1.y < data2.y) return -1;
     else if (data1.y > data2.y) return 1;
     if (data1.m < data2.m) return -1;
@@ -14,19 +15,37 @@ int comparar_datas(Data data1, Data data2){
     return 0;
 }
 
-struct Data ordenar(struct Data vet_datas[]){
-
+void ordenar(struct Data vet_data[]){
+    for (int i = 0; i < MAX_SIZE - 1; i++){
+        for (int j = 0; j < MAX_SIZE - i - 1; j++){
+            if (comparar_datas(vet_data[j], vet_data[j + 1]) > 0){
+                struct Data temp = vet_data[j];
+                vet_data[j] = vet_data[j + 1];
+                vet_data[j + 1] = temp;
+            }
+        }
+    }
 }
 
+struct Data menor_data(struct Data vet_data[]){
+    struct Data min = vet_data[0];
+    for (int i = 0; i < MAX_SIZE; i++){
+        if (comparar_datas(vet_data[i], min) < 0){
+            min = vet_data[i];
+        }
+    }
+    return min;
+}
 
 int main(){
-    struct Data dat1, dat2;
-    dat1.y = 2025;
-    dat1.m = 1;
-    dat1.d = 25;
-    dat2.y = 2000;
-    dat2.m = 1;
-    dat2.d = 23;    
+    struct Data data_min;   
+    struct Data vet_datas[MAX_SIZE] = {{3, 4, 2025}, {11, 9, 2001}, {25, 11, 2013}};
+    ordenar(vet_datas);
+    for (int k = 0; k < MAX_SIZE; k++){
+        printf("%02d/%02d/%02d\n", vet_datas[k].d, vet_datas[k].m, vet_datas[k].y);
+    }
+    printf("\n");
 
-    struct Data vet_datas[] = {dat1, dat2, {3, 4, 2025}};
+    data_min = menor_data(vet_datas);
+    printf("%02d/%02d/%02d\n", data_min.d, data_min.m, data_min.y);
 }
