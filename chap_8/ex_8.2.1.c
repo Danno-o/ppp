@@ -1,27 +1,27 @@
 #include <stdio.h>
 #include <math.h>
-#define MAX_SIZE
+#define MAX_SIZE 10
 
-int linha(int *vet){
-    int *p;
+typedef struct {
+    float x, y;
+} ponto;
+
+
+int linha(ponto *vet){
+    ponto *p;
     float comp_temp = 0;
     float comp = 0;
     p = vet;
     for (int i = 0; i < MAX_SIZE - 1; i++){
-        comp_temp = sqrt(pow(p->x - (p+1)->y, 2) + pow(p->x - (p+1)->y, 2));
+        comp_temp = sqrt(pow(p->x - (p+1)->x, 2) + pow(p->y - (p+1)->y, 2));
         comp += comp_temp;
         p++;
     }
     return comp;
 }
 
-typedef struct {
-    int x; 
-    int y;
-} ponto;
-
-main(){
-    ponto vet[MAX_SIZE] = {{1,2}, {3,1}, {4,3}, {5,5}, {6,7}, {2,3}, {8,9}, {1,6}, {9,0}, {0,7}};
+int main(){
+    ponto vet[MAX_SIZE] = {{1,2}, {3,1}, {4,5}, {5,5}, {6,7}, {5,3}, {8,9}, {1,6}, {9,0}, {0,7}};
     float comp;
     comp = linha(vet);
     printf("O comp é %.02f", comp);
