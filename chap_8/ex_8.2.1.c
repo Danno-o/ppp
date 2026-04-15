@@ -15,8 +15,7 @@ int linha(int *vet){
     return comp;
 }
 
-typedef struct 
-{
+typedef struct {
     int x; 
     int y;
 } ponto;
