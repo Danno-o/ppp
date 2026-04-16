@@ -7,23 +7,20 @@ typedef struct {
 } ponto;
 
 
-int linha(ponto *vet){
+float linha(ponto *vet, float *comp){
     ponto *p;
-    float comp_temp = 0;
-    float comp = 0;
     p = vet;
     for (int i = 0; i < MAX_SIZE - 1; i++){
-        comp_temp = sqrt(pow(p->x - (p+1)->x, 2) + pow(p->y - (p+1)->y, 2));
-        comp += comp_temp;
+        *comp += sqrt(pow(p->x - (p+1)->x, 2) + pow(p->y - (p+1)->y, 2));
         p++;
     }
-    return comp;
+    return 0;
 }
 
 int main(){
     ponto vet[MAX_SIZE] = {{1,2}, {3,1}, {4,5}, {5,5}, {6,7}, {5,3}, {8,9}, {1,6}, {9,0}, {0,7}};
-    float comp;
-    comp = linha(vet);
+    float comp = 0;
+    linha(vet, &comp);
     printf("O comp é %.02f", comp);
     printf("\n");
 }

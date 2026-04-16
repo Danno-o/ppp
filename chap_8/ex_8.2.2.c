@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX_SIZE 3
+#define MAX_SIZE 10
 
 struct Data{
     int d, m, y;
@@ -15,22 +15,31 @@ int comparar_datas(struct Data data1, struct Data data2){
     return 0;
 }
 
-struct Data menor_data(struct Data *vet_data){
+struct Data menor_data(struct Data *vet_data, struct Data *min){
     struct Data *p;
     p = vet_data;
-    struct Data min = vet_data[0];
-    for (int i = 0; i < MAX_SIZE; i++){
-        if (comparar_datas(vet_data[i], min) < 0){
-            min = vet_data[i];
+    *min = vet_data[0];
+    for (int i = 1; i < MAX_SIZE; i++){
+        if ((p->y < min->y)){
+            *min = *p;
+            p++;
         }
+        else if ((p->y == min->y && p->m < min->m)) *min = *p;
+        else if ((p->y == min->y && p->m == min->m && p->d < min->d)) *min = *p;
+
+        else p++;
     }
-    return min;
+    return *min;
 }
 
 int main(){
-    struct Data data_min;   
-    struct Data vet_datas[MAX_SIZE] = {{31, 11, 2025}, {11, 11, 2025}, {25, 11, 2025}};
+    struct Data data_min;
+    struct Data vet_datas[MAX_SIZE] = {{31, 11, 2025}, {11, 4, 2025}, 
+                                       {1, 1, 2025}, {25, 9, 2025}, 
+                                       {13, 12, 2025}, {25, 3, 2025}, 
+                                       {16, 11, 2024}, {9, 5, 2025}, 
+                                       {26, 11, 2025}, {18, 7, 2025}};
     
-    data_min = menor_data(vet_datas);
-    printf("%02d/%02d/%03d\n", data_min.d, data_min.m, data_min.y);
+    menor_data(vet_datas, &data_min);
+    printf("%02d/%02d/%04d\n", data_min.d, data_min.m, data_min.y);
 }
