@@ -4,7 +4,7 @@
 
 char maior_palavra(char str1, char *palavra){
     char *token;
-    palavra = *str1[0];
+    palavra = *;
     token = strtok(str1, ",");
     while (token != NULL){
 
