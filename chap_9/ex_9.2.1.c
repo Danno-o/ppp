@@ -2,20 +2,25 @@
 #include <string.h>
 #define STR_SIZE 4
 
-char maior_palavra(char str1, char *palavra){
+char maior_palavra(char *str1, char **palavra){
     char *token;
-    palavra = *;
-    token = strtok(str1, ",");
-    while (token != NULL){
+    size_t tamanhoMaior = 0;
 
-        token = strtok(NULL, ",");
+    token = strtok(str1, " ");
+    while (token != NULL){
+        if (strlen(token) > tamanhoMaior){
+            tamanhoMaior = strlen(token);
+            *palavra = token;
+        }
+        token = strtok(NULL, " ");
     }
-    printf("\n");
     return 0;
 }
 
 int main(){
-    char *str = "Boas maltinha como estamos";
-    char *palavra_max = str[0];
-    maior_palavra(str, palavra_max);
+    char str[] = "Boas maltinha como estamossss";
+    char *palavra_max = NULL;
+
+    maior_palavra(str, &palavra_max);
+    printf("%s\n", palavra_max);
 }
