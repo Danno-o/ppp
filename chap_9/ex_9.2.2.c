@@ -10,8 +10,7 @@ void int3(int *x){
     int c;
     char string[MAX_SIZE];
     printf("Digite uma string alfanumérica: ");
-    while (cont < MAX_SIZE - 1){
-        c = getchar();
+    while ((c = getchar()) != '\n'){
         if (c == '\n' || c == EOF){
             break;
         }
