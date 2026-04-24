@@ -77,7 +77,7 @@ void removerDaFila(struct fila *queue){
 }
 
 int main(){
-    struct fila *queue = malloc(1000);
+    struct fila *queue = malloc(sizeof(struct fila));
     criarFila(queue);
     int n = 0;
     float x;
