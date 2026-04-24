@@ -25,7 +25,8 @@ char *loadChar(){
 
 int seqNums(char *str){
     int i = 0;
-    int atualStart = 0 /*ponteiro*/, atualSize = 0 /*inteiro*/, melhorStart = 0 /*ponteiro*/, melhorSize = 0 /*inteiro*/;
+    int atualStart = 0, atualSize = 0, melhorStart = 0, melhorSize = 0;
+    
     while (str[i] != '\0'){
         if (isdigit(str[i])){
             if (atualSize == 0) atualStart = i;
@@ -33,34 +34,75 @@ int seqNums(char *str){
         }
         else {
             if (atualSize > melhorSize){
-                melhorSize = atualSize;
-                melhorStart = atualStart;
+            melhorSize = atualSize;
+            melhorStart = atualStart;
             }
             atualSize = 0;
         }
         i++;
-    }
-
+    }   
     if (atualSize > melhorSize){
         melhorSize = atualSize;
         melhorStart = atualStart;
     }
+
     char *strFinal = malloc((melhorSize + 1) * sizeof(char));
     if (strFinal == NULL){
-            free(strFinal);
-            exit(1);
+        free(strFinal);
+        exit(1);
     }
-
     int j = 0;
     while (j < melhorSize){
         strFinal[j] = str[melhorStart + j];
         j++;
     }
+    
     strFinal[j] = '\0';
     int a = atoi(strFinal);
     free(strFinal);
 
     return a;
+
+
+
+
+
+    // int atualStart = 0 /*ponteiro*/, atualSize = 0 /*inteiro*/, melhorStart = 0 /*ponteiro*/, melhorSize = 0 /*inteiro*/;
+    // while (str[i] != '\0'){
+    //     if (isdigit(str[i])){
+    //         if (atualSize == 0) atualStart = i;
+    //         atualSize++;
+    //     }
+    //     else {
+    //         if (atualSize > melhorSize){
+    //             melhorSize = atualSize;
+    //             melhorStart = atualStart;
+    //         }
+    //         atualSize = 0;
+    //     }
+    //     i++;
+    // }
+
+    // if (atualSize > melhorSize){
+    //     melhorSize = atualSize;
+    //     melhorStart = atualStart;
+    // }
+    // char *strFinal = malloc((melhorSize + 1) * sizeof(char));
+    // if (strFinal == NULL){
+    //         free(strFinal);
+    //         exit(1);
+    // }
+
+    // int j = 0;
+    // while (j < melhorSize){
+    //     strFinal[j] = str[melhorStart + j];
+    //     j++;
+    // }
+    // strFinal[j] = '\0';
+    // int a = atoi(strFinal);
+    // free(strFinal);
+
+    // return a;
 }
 
 int main(){
