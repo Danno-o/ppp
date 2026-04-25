@@ -16,7 +16,7 @@ void criarFila(struct fila *fila){
     (*fila).end = NULL;
 }
 
-int filaVazia(struct fila *queue){
+int filaVazia(struct fila *queue){                          // extra
     if ((*queue).start == NULL) return 1;
     else return 0;
 }
@@ -47,7 +47,7 @@ void imprimirFila(struct fila *queue){
 }
 
 
-void removerDaLista(struct fila *queue){
+void removerDaLista(struct fila *queue){                    // extra
     struct node *atual = (*queue).start;
     struct node *anterior = NULL;
     int i = 1, pos;
@@ -82,7 +82,7 @@ void removerDaLista(struct fila *queue){
     
 }
 
-void removerDaFila(struct fila *queue){
+void removerDaFila(struct fila *queue){                     // extra
     struct node *atual = (*queue).start;
     struct node *temp = NULL;
     
