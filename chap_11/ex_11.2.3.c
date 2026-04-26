@@ -59,7 +59,7 @@ void melhorMedia(struct fila *queue){
 
 int main(){
     int n;
-    struct fila *queue = malloc(sizeof(struct node));
+    struct fila *queue = malloc(sizeof(struct fila));
     criarFila(queue);
     
     alunos temp;
