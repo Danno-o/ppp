@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 struct node{
-    char palavra[50];
+    int num;
     struct node *next;
 };
 struct pilha{
@@ -19,9 +18,9 @@ void criarStack(struct pilha *stack){
     (*stack).top = NULL;
 }
 
-void inserirStack(struct pilha *stack, char str[]){
+void inserirStack(struct pilha *stack, int x){
     struct node *new = malloc(sizeof(struct node));
-    strcpy((*new).palavra, str);
+    (*new).num = x;
     (*new).next = (*stack).top;
     (*stack).top = new;
 }
@@ -29,41 +28,28 @@ void inserirStack(struct pilha *stack, char str[]){
 void imprimirStack(struct pilha *stack){
     struct node *temp = (*stack).top;
     if (vazia(stack)){
-        printf("Pilha vazia!");
+        printf("A pilha está vazia!");
         return;
     }
+    
     printf("Pilha: ");
     while (temp != NULL){
-        printf("%s -> ", (*temp).palavra);
+        printf("%d -> ", (*temp).num);
         temp = (*temp).next;
     }
     printf("NULL\n");
 }
 
-// void removerStack(struct pilha *stack){                          // extra
-//     struct node *temp = (*stack).top;
-//     if (vazia(stack)){
-//         printf("A pilha está vazia!");
-//         return;
-//     }
-//     (*stack).top = (*temp).next;
-//     free(temp);
-// }
-
 int main(){
     struct pilha *stack = malloc(sizeof(struct pilha));
-    char strings[50];
-    int n;
     criarStack(stack);
-    printf("Indique o nº de strings: ");
+    int n, x;
+    printf("Indique nº de valores: ");
     scanf("%d", &n);
-    printf("Escreva as suas strings: \n");
+    printf("Indique os valores:\n");
     for (int i = 0; i < n; i++){
-        scanf("%s", strings);
-        inserirStack(stack, strings);
+        scanf("%d", &x);
+        inserirStack(stack, x);
     }
     imprimirStack(stack);
-    // removerStack(stack);
-    // imprimirStack(stack);    
-    
 }
