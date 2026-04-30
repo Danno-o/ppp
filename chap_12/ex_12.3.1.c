@@ -21,8 +21,8 @@ int vaziaFila(struct fila *queue){
 }
 
 int vaziaPilha(struct pilha *stack){
-    return (!(*stack).top == NULL);
-    
+    if ((*stack).top == NULL) return 1;
+    else return 0;    
 }
 
 void criarFila(struct fila *queue){
